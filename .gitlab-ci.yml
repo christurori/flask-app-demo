@@ -15,5 +15,5 @@ buildjob:
         - echo ...LOCAL IMAGE BUILT
         - docker image push cturori/flask-app-demo:latest
         - echo ...IMAGE PUSHED TO DOCKER REGISTRY
-        - aws ecs update-service --cluster $CLUSTER --service $SERVICE --region $REGION --force-new-deployment
+        - aws ecs update-service --deployment-configuration='{minimumHealthyPercent":0}' --cluster $CLUSTER --service $SERVICE --region $REGION --force-new-deployment
         - echo "...AWS EC2 UPDATED"
