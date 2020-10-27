@@ -5,4 +5,4 @@ buildjob:
     script:
         - docker build -t cturori/flask-app-demo:latest
         - docker image push cturori/flask-app-demo:latest
-        - aws ecs update-service --cluster flask-cluster --service simple-flask-app-service --force-new-deployment
+        - aws ecs update-service -cluster flask-cluster -service simple-flask-app-service --force-new-deployment
