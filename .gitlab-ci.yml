@@ -3,6 +3,9 @@ buildjob:
     tags:
         - docker-flask-app
     script:
-        - docker build -t cturori/flask-gitlabci-aws:latest
-        - docker image push cturori/flask-gitlabci-aws:latest
+        - docker build -t cturori/flask-gitlabci-aws:latest -f /Users/christurori/Workspace/VSCode/flask-app-demo/src/Dockerfile 
+        - echo "...local image built"
+        - docker image push cturori/cturori/flask-app-demo:latest
+        - echo "...image pushed to docker registry"
         - aws ecs update-service -cluster flask-cluster -service simple-flask-app-service --force-new-deployment
+        - echo "...aws ec2 updated"
