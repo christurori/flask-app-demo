@@ -2,8 +2,10 @@ buildjob:
     stage: build
     tags:
         - docker-flask-app
+    before_script: 
+        - cd src
     script:
-        - docker build -t cturori/flask-gitlabci-aws:latest -f /Users/christurori/Workspace/VSCode/flask-app-demo/src/Dockerfile 
+        - docker build -t cturori/flask-gitlabci-aws:latest .
         - echo "...local image built"
         - docker image push cturori/cturori/flask-app-demo:latest
         - echo "...image pushed to docker registry"
