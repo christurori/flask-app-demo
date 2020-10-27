@@ -10,7 +10,6 @@ buildjob:
         - cd src
     script:
         - echo ...STARTING BUILD STAGE
-        - pip install awscli
         - echo $(pwd)
         - docker build -t cturori/flask-gitlabci-aws:latest .
         - echo ...LOCAL IMAGE BUILT
