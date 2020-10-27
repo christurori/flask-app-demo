@@ -15,7 +15,7 @@ buildjob:
     script:
         - echo ...STARTING BUILD STAGE
         - echo $(pwd)
-        - docker build -t cturori/flask-gitlabci-aws:latest .
+        - docker build -t cturori/flask-app-demo:latest .
         - echo ...LOCAL IMAGE BUILT
         - docker image push cturori/flask-app-demo:latest
         - echo ...IMAGE PUSHED TO DOCKER REGISTRY
