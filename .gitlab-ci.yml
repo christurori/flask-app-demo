@@ -2,6 +2,10 @@ buildjob:
     stage: build
     tags:
         - docker-flask-app
+    variables:
+        REGION: "us-west-1"
+        SERVICE: "simple-flask-app-service"
+        CLUSTER: "flask-cluster"
     before_script: 
         - cd src
     script:
@@ -11,5 +15,5 @@ buildjob:
         - echo ...LOCAL IMAGE BUILT
         - docker image push cturori/flask-app-demo:latest
         - echo ...IMAGE PUSHED TO DOCKER REGISTRY
-        - aws ecs update-service --cluster flask-cluster --service simple-flask-app-service --force-new-deployment
+        - aws ecs update-service --cluster $CLUSTER --service $SERVICE --region $REGION --force-new-deployment
         - echo "...AWS EC2 UPDATED"
