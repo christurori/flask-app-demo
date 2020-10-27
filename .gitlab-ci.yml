@@ -3,9 +3,9 @@ buildjob:
     tags:
         - docker-flask-app
     variables:
-        REGION: "us-west-1"
-        SERVICE: "simple-flask-app-service"
-        CLUSTER: "flask-cluster"
+        REGION_NAME: "us-west-1"
+        SERVICE_NAME: "simple-flask-app-service"
+        CLUSTER_NAME: "flask-cluster"
     before_script: 
         - cd src
     script:
@@ -15,5 +15,5 @@ buildjob:
         - echo ...LOCAL IMAGE BUILT
         - docker image push cturori/flask-app-demo:latest
         - echo ...IMAGE PUSHED TO DOCKER REGISTRY
-        - aws ecs update-service --deployment-configuration='{"maximumPercent":100,"minimumHealthyPercent":50}' --cluster $CLUSTER --service $SERVICE --region $REGION --force-new-deployment
+        - aws ecs update-service --task-definition task-definition:20 --cluster $CLUSTER_NAME --service $SERVICE_NAME --region $REGION_NAME --force-new-deployment
         - echo "...AWS EC2 UPDATED"
