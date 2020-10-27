@@ -9,8 +9,7 @@ test:
     stage: test
     script:
         - echo [STARTING TEST STAGE]
-        - echo No tests yet...
-        
+                
 build:
     stage: build
     
@@ -38,7 +37,6 @@ deploy_prod:
     
     script:
         - echo [STARTING DEPLOY STAGE]
-        - aws ecs update-service --deployment-configuration "maximumPercent=100,minimumHealthyPercent=0" --cluster $CLUSTER_NAME --service $SERVICE_NAME --region $REGION_NAME --force-new-deployment
-        - echo "...AWS EC2 UPDATED"
+        - aws ecs update-service --deployment-configuration "maximumPercent=100,minimumHealthyPercent=0" --cluster $CLUSTER_NAME --service $SERVICE_NAME --region $AWS_DEFAULT_REGION --force-new-deployment
     only:
         - master
