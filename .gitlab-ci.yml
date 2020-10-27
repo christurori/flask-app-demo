@@ -32,7 +32,10 @@ build:
 
 deploy_prod:
     stage: deploy
-
+    
+    before_script: 
+        - pip install awscli
+    
     script:
         - echo [STARTING DEPLOY STAGE]
         - aws ecs update-service --deployment-configuration "maximumPercent=100,minimumHealthyPercent=0" --cluster $CLUSTER_NAME --service $SERVICE_NAME --region $REGION_NAME --force-new-deployment
