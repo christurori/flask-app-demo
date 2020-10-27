@@ -5,11 +5,11 @@ buildjob:
     before_script: 
         - cd src
     script:
-        - echo "...STARTING BUILD STAGE"
-        - echo pwd
+        - echo ...STARTING BUILD STAGE
+        - echo $(pwd)
         - docker build -t cturori/flask-gitlabci-aws:latest .
-        - echo "...LOCAL IMAGE BUILT"
-        - docker image push cturori/cturori/flask-app-demo:latest
-        - echo "...IMAGE PUSHED TO DOCKER REGISTRY"
+        - echo ...LOCAL IMAGE BUILT
+        - docker image push cturori/flask-app-demo:latest
+        - echo ...IMAGE PUSHED TO DOCKER REGISTRY
         - aws ecs update-service -cluster flask-cluster -service simple-flask-app-service --force-new-deployment
         - echo "...AWS EC2 UPDATED"
