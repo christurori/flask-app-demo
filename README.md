@@ -1,6 +1,6 @@
-# Simple Flask App
+# Simple Flask App with CI/DC Pipeline
 
-This web application is built using the Flask python famework. The pages are rendered as templates, and the page elements are styled using a Bootstrap 4 Bootswatch theme. The project is able to be deployed in a CI/CD pipeline using Docker, Gitlab (remote repository and local runners) and AWS Elastic Conatiner Services (ECS) and Elastic Cloud Compute (EC2) containers. 
+This web application is built using the Flask Python famework. The html page is rendered as a template with a view layout and partial views. The page elements are styled using a Bootstrap 4 Bootswatch theme. And the project is able to be deployed in a CI/CD pipeline using Docker (Compose and remote registry), Gitlab (remote repository and local runners) and AWS Elastic Conatiner Services (ECS) and Elastic Cloud Compute (EC2) containers.
 
 ### Docker Container
 The repository includes a docker-compose file which builds the docker image to run the application. The docker-compose file can be found within the root of the project directory, while the src directory contains its own dockerfile that is used to build the web application - this file structure allows for extension of services offered by the application.
@@ -12,4 +12,4 @@ The repository includes a gitlab-ci file. When paired with a registered local gi
 The application hosted on AWS will only be updated when updates are made to the "master" branch in the gitlab repository. This allows for feature development to be continously integrated but not continously deployed into the production envrionment.
 
 ### Amazon Web Services
-The project is deployed to an EC2, which is managed by the Elastic Container Service, a container orchestration service provided by Amazon. The gitlab-ci file uses the AWS CLI API provided by Amazon, to update the application running on the EC2 instance. 
+The project is deployed to an EC2 container, which is managed by Amazons Elastic Container Service (a container orchestration service). The gitlab-ci file uses the AWS CLI API provided by Amazon, to update the application running on the EC2 instance.
