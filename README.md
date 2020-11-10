@@ -2,7 +2,7 @@
 
 This web application is built using the Flask Python famework. The html page is rendered as a template with a view layout and partial views. The page elements are styled using a Bootstrap 4 Bootswatch theme. And the project is able to be deployed in a CI/CD pipeline using Docker (Compose and remote registry), Gitlab (remote repository and local runners) and AWS Elastic Conatiner Services (ECS) and Elastic Cloud Compute (EC2) containers.
 
-[flow diagram](src/static/flask-cicd-aws.pdf)
+[flow diagram](src/static/flask-cicd-aws.png)
 
 ### Docker Container
 The repository includes a docker-compose file which builds the docker image to run the application. The docker-compose file can be found within the root of the project directory, while the src directory contains its own dockerfile that is used to build the web application - this file structure allows for extension of services offered by the application.
