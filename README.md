@@ -1,4 +1,4 @@
-# Simple Flask App with CI/DC Pipeline
+# Simple Flask App with CI/CD Pipeline
 
 This web application is built using the Flask Python famework. The html page is rendered as a template with a view layout and partial views. The page elements are styled using a Bootstrap 4 Bootswatch theme. And the project is able to be deployed in a CI/CD pipeline using Docker (Compose and remote registry), Gitlab (remote repository and local runners) and AWS Elastic Conatiner Services (ECS) and Elastic Cloud Compute (EC2) containers.
 
